@@ -5,13 +5,19 @@
     <title>登录</title>
     <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
     <script th:src="@{/js/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>
 </head>
+<style>
+    body{
+        background-image: url("../web/img/loginback.jpg");
+    }
+</style>
 <body>
 <div class="login-page">
     <div class="form">
         <input type="text" placeholder="用户名" name="username" required="required"/>
         <input type="password" placeholder="密码" name="password" required="required"/>
-        <p><input type="checkbox" name="rememberMe" />记住我</p>
+        <input type="checkbox" name="rememberMe" style="margin-left: -139px;"/>记住密码
         <button onclick="login()">登录</button>
     </div>
 </div>
@@ -19,22 +25,34 @@
 <script th:inline="javascript">
     var ctx = [[@{/}]];
         function login() {
+            var flag;
             var username = $("input[name='username']").val();
             var password = $("input[name='password']").val();
             var rememberMe = $("input[name='rememberMe']").is(':checked');
+            if(username==''){
+                swal("请输入用户名");
+                flag=false;
+            }else if(password==''){
+                swal("请输入密码");
+                flag=false;
+            }else{
+                flag=true;
+            }
+        if(flag==true) {
             $.ajax({
                 type: "post",
                 url: ctx + "login",
-                data: {"username": username,"password": password,"rememberMe": rememberMe},
+                data: {"username": username, "password": password, "rememberMe": rememberMe},
                 dataType: "json",
                 success: function (r) {
                     if (r.code == 0) {
                         location.href = ctx + 'index';
                     } else {
-                        alert(r.msg);
+                        swal(r.msg);
                     }
                 }
             });
         }
+    }
 </script>
 </html>

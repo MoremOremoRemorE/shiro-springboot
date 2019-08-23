@@ -72,7 +72,7 @@ public class ShiroRealm extends AuthorizingRealm {
         User user = userService.findByUserName(userName);
 
         if (user == null) {
-            throw new UnknownAccountException("用户名或密码错误！");
+            throw new UnknownAccountException("没有这个用户！");
         }
         if (!password.equals(user.getPassword())) {
             throw new IncorrectCredentialsException("用户名或密码错误！");
