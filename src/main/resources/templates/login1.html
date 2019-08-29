@@ -50,7 +50,7 @@
 
     <!-- Modules -->
     <script th:src="@{/assets/js/modules.js}"></script>
-    <script th:src="@{https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>
+    <!--<script th:src="@{https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>-->
   </head>
   <body class="body">
     <!-- main -->
@@ -136,10 +136,10 @@
         var password = $("input[name='password']").val();
         var rememberMe = $("input[name='rememberMe']").is(':checked');
         if(username==''){
-          swal("请输入用户名");
+          alert("请输入用户名");
           flag=false;
         }else if(password==''){
-          swal("请输入密码");
+            alert("请输入密码");
           flag=false;
         }else{
           flag=true;
@@ -154,7 +154,7 @@
               if (r.code == 0) {
                 location.href = ctx + 'index';
               } else {
-                swal(r.msg);
+                alert(r.msg);
               }
             }
           });

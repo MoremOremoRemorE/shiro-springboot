@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beid - Responsive HTML5 Template</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/fonts/fontawesome/all.min.css}" type="text/css">
+    <link th:href="@{/assets/css/fonts/beid.css}" rel="stylesheet">
+
+    <link th:href="@{/assets/css/main.css}" rel="stylesheet">
+    <link th:href="@{/assets/css/styles.css}" rel="stylesheet">
+
+    <!-- JQVMAP -->
+    <link th:href="@{/assets/plugins/jqvmap/jqvmap.min.css}" rel="stylesheet">
+
+    <!-- dateRangePicker -->
+    <link th:href="@{/assets/plugins/daterangepicker/daterangepicker.css}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/assets/img/apple-touch-icon.png}">
+    <link rel="icon" th:href="@{/assets/img/favicon.png}">
+
+    <!-- Fonts -->
+    <link th:href="@{/assets/fonts/inter/inter.css}" rel="stylesheet">
+    <link th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i}" rel="stylesheet">
+    <link th:href="@{https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script th:src="@{http://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js}"></script>
+    <script th:src="@{http://oss.maxcdn.com/respond/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+
+<nav id="adminNav" class="main-sidebar p-collapsing-sidebar sidebar-fixed sidebar-left d-flex flex-column"  th:fragment="left">
+    <div class="main-sidebar-inner" data-scrollbar="sidebar">
+        <ul class="sidebar-nav sidebar-nav-light-hover list-unstyled text-unset small-3 fw-600 content-list">
+            <li class="nav-item text-light transition active">
+                <a href="" aria-expanded="false" data-toggle="collapse" class="sbr-collapse nav-link nav-link-border collapsed collapser collapser-active">
+                    <i class="fas fa-desktop"></i> <span class="p-collapsing-title">Dashboard</span>
+                </a>
+                <div class="collapse nav-collapse collapse show">
+                    <ul class="list-unstyled">
+                        <li class="nav-item active">
+                            <a href="index-dashboard.html" class="p-collapsing-title nav-link">
+                                <span>Default</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index-eCommerce.html" class="p-collapsing-title nav-link">
+                                <span>E-Commerce</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index-analytics.html" class="p-collapsing-title nav-link">
+                                <span>Analytics</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item text-light transition">
+                <a href="" aria-expanded="false" data-toggle="collapse" class="sbr-collapse nav-link nav-link-border collapser collapser-active open">
+                    <i class="far fa-sticky-note"></i> <span class="p-collapsing-title">App pages</span>
+                </a>
+                <div class="collapse nav-collapse collapse show">
+                    <ul class="list-unstyled">
+                        <li class="nav-item">
+                            <a href="email.html" class="p-collapsing-title nav-link">
+                                <span>Email</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="chat.html" class="p-collapsing-title nav-link">
+                                <span>Chat</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile.html" class="p-collapsing-title nav-link">
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="p-collapsing-title nav-link">
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="register.html" class="p-collapsing-title nav-link">
+                                <span>Register</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="reset-password.html" class="p-collapsing-title nav-link">
+                                <span>Reset-password</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="forgot-password.html" class="p-collapsing-title nav-link">
+                                <span>Forgot-password</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="lock-screen.html" class="p-collapsing-title nav-link">
+                                <span>Lock-screen</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="404.html" class="p-collapsing-title nav-link">
+                                <span>404 Error</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item text-light transition">
+                <a href="" aria-expanded="false" data-toggle="collapse" class="sbr-collapse nav-link nav-link-border collapser collapser-active open">
+                    <i class="fas fa-shopping-cart"></i> <span class="p-collapsing-title">商品管理</span>
+                </a>
+                <div class="collapse nav-collapse collapse show">
+                    <ul class="list-unstyled">
+                        <li class="nav-item">
+                            <a th:href="@{/good/allgood}" class="p-collapsing-title nav-link">
+                                <span>所有商品</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="product-details.html" class="p-collapsing-title nav-link">
+                                <span>Product details</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item text-light transition">
+                <a href="" aria-expanded="false" data-toggle="collapse" class="sbr-collapse nav-link nav-link-border collapser collapser-active open">
+                    <i class="far fa-clone"></i> <span class="p-collapsing-title">Form</span>
+                </a>
+                <div class="collapse nav-collapse collapse show">
+                    <ul class="list-unstyled">
+                        <li class="nav-item">
+                            <a href="form-controls.html" class="p-collapsing-title nav-link">
+                                <span>Form Controls</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="input-group.html" class="p-collapsing-title nav-link">
+                                <span>Input group</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="checkbox.html" class="p-collapsing-title nav-link">
+                                <span>Checkbox</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="switch.html" class="p-collapsing-title nav-link">
+                                <span>Switch</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="range.html" class="p-collapsing-title nav-link">
+                                <span>Range</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="file-browser.html" class="p-collapsing-title nav-link">
+                                <span>File Browser</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item text-light transition">
+                <a href="" aria-expanded="false" data-toggle="collapse" class="sbr-collapse nav-link nav-link-border collapser collapser-active open">
+                    <i class="fas fa-cube"></i> <span class="p-collapsing-title">Components</span>
+                </a>
+                <div class="collapse nav-collapse collapse show">
+                    <ul class="list-unstyled">
+                        <li class="nav-item">
+                            <a href="accordion.html" class="p-collapsing-title nav-link">
+                                <span>Accordion</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="alerts.html" class="p-collapsing-title nav-link">
+                                <span>Alerts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="breadcrumb.html" class="p-collapsing-title nav-link">
+                                <span>Breadcrumb</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="buttons.html" class="p-collapsing-title nav-link">
+                                <span>Buttons</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="card.html" class="p-collapsing-title nav-link">
+                                <span>Card</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tabs.html" class="p-collapsing-title nav-link">
+                                <span>Tabs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item text-light transition">
+                <a href="" aria-expanded="false" data-toggle="collapse" class="sbr-collapse nav-link nav-link-border collapser collapser-active open">
+                    <i class="fas fa-chart-bar"></i> <span class="p-collapsing-title">Charts & Maps</span>
+                </a>
+                <div class="collapse nav-collapse collapse show">
+                    <ul class="list-unstyled">
+                        <li class="nav-item">
+                            <a href="charts.html" class="p-collapsing-title nav-link">
+                                <span>Charts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="google-map.html" class="p-collapsing-title nav-link">
+                                <span>Google Map</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="preloaderWrapper"></div>
+
+<!-- jQuery -->
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+
+<!-- Bootstrap -->
+<script th:src="@{/assets//js/bootstrap.min.js}"></script>
+
+<!-- Chart.js -->
+<script th:src="@{/assets/plugins/chart/Chart.min.js}" id="_chartJS_min"></script>
+<script th:src="@{/assets/plugins/chart/Chart.bundle.min.js}"></script>
+<script th:src="@{/assets/plugins/chart/chartjs-plugin-annotation.js}"></script>
+<script th:src="@{/assets/plugins/chart/chartjs-plugin-labels.js}"></script>
+
+<!-- apexcharts -->
+<script th:src="@{/assets/plugins/apexcharts/apexcharts.min.js}"></script>
+
+<!-- RangeSlider -->
+<script th:src="@{/assets/plugins/rangeslider/rangeslider.min.js}" id="_rangeJS_min"></script>
+
+<!-- Moment -->
+<script th:src="@{/assets/plugins/lib/moment/moment.min.js}"></script>
+
+<!-- JQVMAP -->
+<script th:src="@{/assets/plugins/jqvmap/jquery.vmap.min.js}" id="_JQVMAP"></script>
+<script th:src="@{/assets/plugins/jqvmap/maps/jquery.vmap.world.js}"></script>
+
+<!-- dateRangePicker -->
+<script th:src="@{/assets/plugins/daterangepicker/daterangepicker.js}" id="_DateRangeJS_min"></script>
+
+<!-- User JS -->
+<script th:src="@{/assets/js/scripts.js}"></script>
+
+<!-- Main JS -->
+<script th:src="@{/assets/js/main.js}" id="_mainJS" data-plugins="load"></script>
+
+<!-- Modules -->
+<script th:src="@{/assets/js/modules.js}"></script>
+</body>

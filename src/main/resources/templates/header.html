@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beid - Responsive HTML5 Template</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/fonts/fontawesome/all.min.css}" type="text/css">
+    <link th:href="@{/assets/css/fonts/beid.css}" rel="stylesheet">
+
+    <link th:href="@{/assets/css/main.css}" rel="stylesheet">
+    <link th:href="@{/assets/css/styles.css}" rel="stylesheet">
+
+    <!-- JQVMAP -->
+    <link th:href="@{/assets/plugins/jqvmap/jqvmap.min.css}" rel="stylesheet">
+
+    <!-- dateRangePicker -->
+    <link th:href="@{/assets/plugins/daterangepicker/daterangepicker.css}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" th:href="@{/assets/img/apple-touch-icon.png}">
+    <link rel="icon" th:href="@{/assets/img/favicon.png}">
+
+    <!-- Fonts -->
+    <link th:href="@{/assets/fonts/inter/inter.css}" rel="stylesheet">
+    <link th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i}" rel="stylesheet">
+    <link th:href="@{https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script th:src="@{http://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js}"></script>
+    <script th:src="@{http://oss.maxcdn.com/respond/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body class="body">
+!-- header -->
+<header class="main-header" th:fragment="header">
+    <!-- nav -->
+    <nav class="main-navbar navbar navbar-expand-lg navbar-light shadow-2">
+        <div class="lnav-box d-flex">
+            <div class="logo-wrapper px-3 d-none d-md-flex">
+                <img th:src="@{/assets/img/logo.png}" alt="Logo">
+            </div>
+            <div class="sidebar-toggler-wrapper ml-auto">
+                <button class="p-collapsing-sidebar-toggler sidebar-toggler-secondary transition rounded-circle" data-collapsing="partially" data-collapsing-target="#adminNav" type="button">
+                    <span class="icon-menu-options"></span>
+                </button>
+            </div>
+        </div>
+        <div class="d-none d-lg-block ml-0 mr-auto pl-4">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link d-inline-flex align-items-center h-100 text-capitalize ls-normal small-1" id="dropdownDashboards" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fw-400"><i class="far fa-folder mr-1"></i><span class="d-none d-xl-inline">主页</span></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left shadow-1 py-3 position-absolute mt-1" aria-labelledby="dropdownDashboards">
+                        <a class="dropdown-item" href="index-dashboard.html">Default</a>
+                        <a class="dropdown-item" href="index-eCommerce.html">E-Commerce</a>
+                        <a class="dropdown-item" href="#">Charts</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link d-inline-flex align-items-center h-100 text-capitalize ls-normal small-1" id="dropdownEcommerce" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fw-400"><i class="icon-cart mr-1"></i><span class="d-none d-xl-inline">购物</span></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left shadow-1 py-3 position-absolute mt-1" aria-labelledby="dropdownEcommerce">
+                        <a class="dropdown-item" href="shop.html">Shop</a>
+                        <a class="dropdown-item" href="product-details.html">Product details</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-flex align-items-center h-100 text-capitalize ls-normal small-1" href="email.html">
+                        <span class="fw-400"><i class="icon-closed-envelope-email mr-1"></i><span class="d-none d-xl-inline">邮件</span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="pr-6">
+            <ul class="nav sec-nav navbar-nav flex-row">
+                <li class="nav-item">
+                    <a href="#" data-toggle="offcanvas" data-target="#offcanvas-search" class="nav-link lead-2 pl-2 pl-md-3"><span class="icon-search"></span></a>
+                </li>
+                <li class="notf-item nav-item p-static p-md-relative dropdown">
+                    <a class="notf-link nav-link d-inline-flex align-items-center h-100 small-1 pl-2 pl-md-3" href="#" id="dropdownAdmin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="p-relative d-inline-flex">
+                  <span class="badge badge-counter badge-warning l-1">8</span><span class="icon-bell lead-2"></span>
+                </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-sm-center dropdown-menu-right dropdown-menu-wh shadow-1 bc-t position-absolute mt-1" aria-labelledby="dropdownAdmin">
+                        <div class="dropdown-inner rounded-2">
+                            <div class="warning-gradient px-4 py-3 text-center">
+                                <h5 class="mb-0">消息</h5>
+                            </div>
+                            <div class="pl-4 pr-3 py-5">
+                                <div class="dropdown-scrollbar" data-scrollbar="dropdown">
+                                    <ul class="list-unstyled">
+                                        <li class="pb-4">
+                                            <div class="d-flex align-items-center text-white">
+                                                <div class="text-warning lead-2"><i class="fas fa-box"></i></div>
+                                                <div class="px-4">
+                                                    <span class="text-warning lead-1 lh-2 fw-600 d-block">New Message</span>
+                                                    <span>New message?</span>
+                                                </div>
+                                                <div class="text-nowrap ml-auto pr-4">
+                                                    2 hours ago
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="dropdown-load-more text-center px-4 py-2">
+                                <a href="#">更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notf-item nav-item p-static p-md-relative dropdown">
+                    <a class="notf-link nav-link d-inline-flex align-items-center h-100 small-1 pl-2 pl-md-3" href="#" id="dropdownCart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="p-relative d-inline-flex">
+                  <span class="badge badge-counter badge-warning l-1">7</span><span class="icon-cart lead-2"></span>
+                </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right dropdown-menu-sm-center dropdown-menu-wh shadow-1 bc-t position-absolute mt-1" aria-labelledby="dropdownCart">
+                        <div class="dropdown-inner rounded-2">
+                            <div class="warning-gradient px-4 py-3 text-center">
+                                <h5 class="mb-0">卡片页</h5>
+                            </div>
+                            <div class="pl-4 pr-3 py-5">
+                                <div class="dropdown-scrollbar" data-scrollbar="dropdown">
+                                    <ul class="cart_list_hr list-unstyled">
+                                        <li class="cart_list_item_hr">
+                                            <div class="d-flex align-items-center text-white">
+                                                <div class="text-warning cart-img lead-2">
+                                                    <img th:src="@{/assets/img/eCommerce/eCe-01.jpg}" class="" alt="Smart Watch">
+                                                </div>
+                                                <div class="flex-1 px-4">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pr-4">
+                                                            <span class="text-warning lead-1 lh-2 fw-600 d-block">Apple Watch OS</span>
+                                                            <div class="cart-nav-desc">Learn small ways to make a big difference to.</div>
+                                                        </div>
+                                                        <div class="px-3 ml-auto">
+                                                            <a href="#" class="text-nowrap text-warning"><i class="fas fa-trash"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div>x1</div>
+                                                        <div class="ml-auto">$1000</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="cart_list_item_hr">
+                                            <div class="d-flex align-items-center text-white">
+                                                <div class="text-warning cart-img lead-2">
+                                                    <img th:src="@{/assets/img/eCommerce/eCe-04.jpg}" class="" alt="Smart Watch">
+                                                </div>
+                                                <div class="flex-1 px-4">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pr-4">
+                                                            <span class="text-warning lead-1 lh-2 fw-600 d-block">Apple Watch OS</span>
+                                                            <div class="cart-nav-desc">Learn small ways to make a big difference to.</div>
+                                                        </div>
+                                                        <div class="px-3 ml-auto">
+                                                            <a href="#" class="text-nowrap text-warning"><i class="fas fa-trash"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div>x1</div>
+                                                        <div class="ml-auto">$1000</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="dropdown-load-more text-center px-4 py-2">
+                                <a href="#"><span class="icon-cart mr-1"></span> View Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="user-item nav-item dropdown">
+                    <a class="user-link nav-link d-inline-flex align-items-center h-100 small-1 pl-1 pl-sm-3 pr-0" href="#" id="dropdownAdmin_02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="user-avatar rounded-circle mr-sm-3" th:src="@{/assets/img/avatar/1.jpg}" alt="Avatar">
+                        <div class="d-none d-sm-block lh-1">
+                            <div class="lh-5">用户名(从后台传)</div>
+                            <span class="small-3"><i class="fas fa-circle text-warning small-5"></i> Online</span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow-1 py-3 position-absolute mt-2" aria-labelledby="dropdownAdmin">
+                        <a class="dropdown-item" href="#"><span class="icon-messenger-user-avatar mr-2"></span>My Profile</a>
+                        <a class="dropdown-item" href="#"><span class="icon-closed-envelope-email mr-2"></span>Messages</a>
+                        <a class="dropdown-item" href="#"><span class="icon-options-gear mr-2"></span>Settings</a>
+                        <a class="dropdown-item" href="#"><span class="icon-power-on-buton mr-2"></span>Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /.nav -->
+</header>
+<div class="preloaderWrapper"></div>
+
+<!-- jQuery -->
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+
+<!-- Bootstrap -->
+<script th:src="@{/assets//js/bootstrap.min.js}"></script>
+
+<!-- Chart.js -->
+<script th:src="@{/assets/plugins/chart/Chart.min.js}" id="_chartJS_min"></script>
+<script th:src="@{/assets/plugins/chart/Chart.bundle.min.js}"></script>
+<script th:src="@{/assets/plugins/chart/chartjs-plugin-annotation.js}"></script>
+<script th:src="@{/assets/plugins/chart/chartjs-plugin-labels.js}"></script>
+
+<!-- apexcharts -->
+<script th:src="@{/assets/plugins/apexcharts/apexcharts.min.js}"></script>
+
+<!-- RangeSlider -->
+<script th:src="@{/assets/plugins/rangeslider/rangeslider.min.js}" id="_rangeJS_min"></script>
+
+<!-- Moment -->
+<script th:src="@{/assets/plugins/lib/moment/moment.min.js}"></script>
+
+<!-- JQVMAP -->
+<script th:src="@{/assets/plugins/jqvmap/jquery.vmap.min.js}" id="_JQVMAP"></script>
+<script th:src="@{/assets/plugins/jqvmap/maps/jquery.vmap.world.js}"></script>
+
+<!-- dateRangePicker -->
+<script th:src="@{/assets/plugins/daterangepicker/daterangepicker.js}" id="_DateRangeJS_min"></script>
+
+<!-- User JS -->
+<script th:src="@{/assets/js/scripts.js}"></script>
+
+<!-- Main JS -->
+<script th:src="@{/assets/js/main.js}" id="_mainJS" data-plugins="load"></script>
+
+<!-- Modules -->
+<script th:src="@{/assets/js/modules.js}"></script>
+</body>
+</html>
