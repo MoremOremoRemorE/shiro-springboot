@@ -89,7 +89,7 @@
 }
 body {
     background: #76b852; /* fallback for old browsers */
-    background-image: url(../../static/img/loginback.jpg);
+    background-image: url(../img/loginback.jpg);
     background: -webkit-linear-gradient(right, #76b852, #8dc26f);
     background: -moz-linear-gradient(right, #76b852, #8dc26f);
     background: -o-linear-gradient(right, #76b852, #8dc26f);

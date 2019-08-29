@@ -6,9 +6,15 @@ import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+
 @ControllerAdvice
 @Order(value = Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler {
+
+    /**
+     * 权限异常处理
+     * @return
+     */
     @ExceptionHandler(value = AuthorizationException.class)
     public String handleAuthorizationException() {
         return "403";

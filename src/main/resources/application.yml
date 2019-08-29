@@ -76,7 +76,6 @@ spring:
         min-idle: 0
       timeout: 0
 
-
 mybatis:
   # type-aliases扫描路径
   type-aliases-package: com.jin.jin.model

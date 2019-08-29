@@ -37,10 +37,11 @@ public class ShiroConfig {
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 
         filterChainDefinitionMap.put("/login", "anon");
-        filterChainDefinitionMap.put("/css/**", "anon");
-        filterChainDefinitionMap.put("/js/**", "anon");
-        filterChainDefinitionMap.put("/fonts/**", "anon");
-        filterChainDefinitionMap.put("/img/**", "anon");
+        filterChainDefinitionMap.put("/assets/css/**", "anon");
+        filterChainDefinitionMap.put("/assets/js/**", "anon");
+        filterChainDefinitionMap.put("/assets/fonts/**", "anon");
+        filterChainDefinitionMap.put("/assets/img/**", "anon");
+        filterChainDefinitionMap.put("/assets/plugins/**", "anon");
         filterChainDefinitionMap.put("/druid/**", "anon");
         filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/", "anon");

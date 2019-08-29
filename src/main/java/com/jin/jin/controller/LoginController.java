@@ -17,13 +17,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
 
     @GetMapping("/login")
-    public String login() {
-        return "login";
+    public ModelAndView login() {
+        ModelAndView mav = new ModelAndView("login1");
+        return mav;
     }
 
     @PostMapping("/login")
@@ -58,7 +60,7 @@ public class LoginController {
         // 登录成后，即可通过Subject获取登录的用户信息
         User user = (User) SecurityUtils.getSubject().getPrincipal();
         model.addAttribute("user", user);
-        return "index";
+        return "index1";
     }
 
     @GetMapping("/403")
