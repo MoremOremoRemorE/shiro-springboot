@@ -42,6 +42,13 @@ public class ResponseBo extends HashMap<String, Object> {
         return new ResponseBo();
     }
 
+    /*public static ResponseBo hasUser(int code, String msg) {
+        ResponseBo ResponseBo = new ResponseBo();
+        ResponseBo.put("code", code);
+        ResponseBo.put("msg", msg);
+        return ResponseBo;
+    }
+*/
     @Override
     public ResponseBo put(String key, Object value) {
         super.put(key, value);

@@ -50,7 +50,7 @@
 
     <!-- Modules -->
     <script th:src="@{/assets/js/modules.js}"></script>
-    <!--<script th:src="@{https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>-->
+    <script th:src="@{https://unpkg.com/sweetalert/dist/sweetalert.min.js}"></script>
   </head>
   <body class="body">
     <!-- main -->
@@ -76,7 +76,7 @@
                       <div class="px-4 pr-md-7 py-6 pl-md-0">
                         <h4 class="mb-6 text-light">登录</h4>
                         <div>
-                          <form class="input-light">
+                          <form1 class="input-light">
                               <div class="text-center">
                                 <div class="text-center my-6">
                                     <a class="btn btn-google btn-sm-block mx-md-2 my-md-3" href="#">
@@ -112,10 +112,10 @@
                               <div class="form-group d-flex mb-0 mt-6">
                                <button class="btn btn-warning" onclick="login()">登录</button>
                                 <div class="ml-auto">
-                                  <button class="btn btn-outline-warning" >注册</button>
+                                  <button class="btn btn-outline-warning" onclick="regiest()">注册</button>
                                 </div>
                               </div>
-                          </form>
+                          </form1>
                         </div>
                       </div>
                     </div>
@@ -136,10 +136,10 @@
         var password = $("input[name='password']").val();
         var rememberMe = $("input[name='rememberMe']").is(':checked');
         if(username==''){
-          alert("请输入用户名");
+          swal("请输入用户名");
           flag=false;
         }else if(password==''){
-            alert("请输入密码");
+          swal("请输入密码");
           flag=false;
         }else{
           flag=true;
@@ -154,11 +154,15 @@
               if (r.code == 0) {
                 location.href = ctx + 'index';
               } else {
-                alert(r.msg);
+                swal(r.msg);
               }
             }
           });
         }
+      }
+
+      function regiest() {
+      window.location.href=ctx+ "regiest";
       }
   </script>
 </html>

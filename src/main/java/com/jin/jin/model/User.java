@@ -7,10 +7,14 @@ public class User implements Serializable {
     private static final long serialVersionUID = -5440372534300871944L;
 
     private Integer id;
+    private String userid;
     private String userName;
     private String password;
     private String createTime;
     private Integer status;
+    private String email;
+    private String firstName;
+    private String lastName;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -54,5 +58,37 @@ public class User implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 }

@@ -7,8 +7,16 @@
         <id column="password" property="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <id column="create_time" property="createTime" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <id column="status" property="status" javaType="java.lang.Integer" jdbcType="NUMERIC"/>
+        <id column="email" property="email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <id column="first_name" property="firstName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <id column="last_name" property="lastName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <id column="userid" property="userid" javaType="java.lang.String" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="findByUserName" resultMap="User">
         select * from t_user where user_name = #{userName}
     </select>
+    <insert id="addUser" parameterType="user">
+        insert into t_user (userid,user_name,password,create_time,status,email,first_name,last_name)
+        value (#{userid},#{userName},#{password},#{createTime},#{status},#{email},#{firstName},#{lastName})
+    </insert>
 </mapper>
